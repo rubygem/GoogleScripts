@@ -16,12 +16,11 @@ function onOpen() {
 }
 
 function wizard(){
-  totalSteps = 5;
+  totalSteps = 4;
   dates(1);
-  isReturnBout(2);
-  specifyTeam(3);
-  specifyHomeTeam(4);
-  specifyAwayTeam(5);
+  specifyHomeTeam(2);
+  specifyAwayTeam(3);
+  isReturnBout(4);
 }
 
 function dates(step){
@@ -58,6 +57,7 @@ function specifyHomeTeam(step){
   }
   
   update(teamName, HOME_TEAM);
+  specifyTeam(teamName);
 }
 
 function isReturnBout(step) {
@@ -78,17 +78,9 @@ function isReturnBout(step) {
   update(requiredWithin, REQUIRED_WITHIN);
 }
 
-function specifyTeam(step){
-  var text = 'Is this an A team game (so playing to higher skills)?';
-  var result = createYesNoDialog(step, text);
-  var team = 'B';
-
-  if (clickedYes(result)) {
-    team = 'A';
-  }
-
+function specifyTeam(teamName){
   var minSkillsYear = B_TEAM_MIN_SKILLS;
-  if (team == "A"){
+  if (teamName == 'New Wheeled Order' || teamName == 'CheckerBroads'){
     minSkillsYear = A_TEAM_MIN_SKILLS;
   }
 
