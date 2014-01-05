@@ -143,6 +143,6 @@ function weeksAfter(boutDate, weeks){
   var today = new Date(boutDate);
 
   var numberOfDays = 7*weeks;
-  var date = new Date(today).setDate(today.getDate()-(numberOfDays));
+  var date = new Date(today).setDate(today.getDate()+(numberOfDays));
   return Utilities.formatDate(new Date(date), "GMT", "dd/MM/yyyy");;
 }
